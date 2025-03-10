@@ -1,15 +1,20 @@
 <!-- 編集画面 -->
 
-<h1>編集画面</h1>
+<h1>Editing Book</h1>
 
 <%= form_with model: @book do |f| %>
 
-  <h4>タイトル</h4>
+  <h4>Title</h4>
   <%= f.text_field :title %>
   
-  <h4>本文</h4>
+  <h4>Body</h4>
   <%= f.text_area :body %>
   
-  <%= f.submit '保存' %>
+  <%= f.submit 'Update book' %>
+
+  <span>
+  <%= link_to 'Show', book_path(@book.id) %>
+  <%= link_to "Back", books_path %>
+  </span>
   
 <% end %>
