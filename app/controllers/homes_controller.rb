@@ -1,6 +1,9 @@
 class HomesController < ApplicationController
-  #アクションを定義する（25/3/9 14:30)
+  #アクションを定義する
   def top
-
   end
+
+  def index
+  end
+
 end

@@ -31,6 +31,10 @@ header {
 }
 
 
+.books-table td {
+  padding: 10px; /* セル内の余白を設定 */
+}
+
 \\\\\\
 
 header .headline {

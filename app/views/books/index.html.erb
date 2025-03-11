@@ -2,28 +2,44 @@
 
 <h1>Books</h1>
 
+<table class="books-table">
+
+      <tr>
+        <th>Title</th>
+        <th>Body</th>
+        <td colspan="3">
+      </tr>
+
 <% @books.each do |book| %>
+      <tr>
+        <td><span><%= book.title %></span></td>
+        <td><span><%= book.body %></span></td>
 
-  <p>Title</p>
-  <span><%= book.title %></span>
-
-  <p>Body</p>
-  <span><%= book.body %></span>
-
-  <span>
-  <%= link_to 'Show', book_path(book.id) %>
-  <%= link_to 'Edit', edit_book_path(book.id) %>
-  <%= link_to 'Destroy', book_path(book.id), method: :delete, "data-confirm" => "Are you sure?" %>
-  </span>
-
-  
-<% end %>
-
+      <td><span><%= link_to 'Show', book_path(book.id) %></span></td>
+      <td><span><%= link_to 'Edit', edit_book_path(book.id) %></span></td>
+      <td><span><%= link_to 'Destroy', book_path(book.id), method: :delete, "data-confirm" => "Are you sure?" %></span></td>
+      </tr>
+      <% end %>
+</table>
 
 
 <!-- 投稿画面 -->
 
-<h1>New book</h1>
+<div>
+  <%= flash[:notice] %>
+</div>
+
+<h2>New book</h2>
+
+
+<% if @book.errors.any? %>
+  <%= @book.errors.count %>errors prohibited this book from being saved:
+  <ul>
+    <% @book.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
 
 <%= form_with model: @book do |f| %>
   <h4>Title</h4>
